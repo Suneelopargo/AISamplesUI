@@ -34,7 +34,7 @@ function AIScannerPage() {
       const data = new FormData()
       data.append('file', imageFile)
 
-      const response = await axios.post('http://localhost:8899/api/id/scan', data, {
+      const response = await axios.post('https://ssapplications-hfc4fpbzh9enf7dr.southindia-01.azurewebsites.net/api/id/scan', data, {
         headers: {
           'Content-Type': 'multipart/form-data'
         }
@@ -135,7 +135,7 @@ function AIScannerPage() {
       try {
         setLoading(true)
 
-        const response = await axios.post('http://localhost:8899/api/voice/extract', {
+        const response = await axios.post('https://ssapplications-hfc4fpbzh9enf7dr.southindia-01.azurewebsites.net/api/voice/extract', {
           transcript: finalTranscript
         })
 

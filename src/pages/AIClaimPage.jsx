@@ -21,7 +21,8 @@ function AIClaimPage() {
     try {
       setLoading(true)
 
-      const res = await axios.post('http://localhost:8899/api/claims/process', payload)
+      //const res = await axios.post('http://localhost:8899/api/claims/process', payload)
+      const res = await axios.post('https://ssapplications-hfc4fpbzh9enf7dr.southindia-01.azurewebsites.net/api/claims/process', payload)
       setClaimResult(res.data)
     } catch (err) {
       console.error(err)
