@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import axios from 'axios'
+import { API_BASE_URL } from '../config'
 
 function AIClaimPage() {
   const [loading, setLoading] = useState(false)
@@ -21,8 +22,7 @@ function AIClaimPage() {
     try {
       setLoading(true)
 
-      //const res = await axios.post('http://localhost:8899/api/claims/process', payload)
-      const res = await axios.post('https://ssapplications-hfc4fpbzh9enf7dr.southindia-01.azurewebsites.net/api/claims/process', payload)
+      const res = await axios.post(`${API_BASE_URL}/api/claims/process`, payload)
       setClaimResult(res.data)
     } catch (err) {
       console.error(err)

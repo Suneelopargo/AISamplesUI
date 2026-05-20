@@ -2,6 +2,7 @@ import { useRef, useState } from 'react'
 import { createPortal } from 'react-dom'
 import axios from 'axios'
 import Webcam from 'react-webcam'
+import { API_BASE_URL } from '../config'
 
 function AIScannerPage() {
   const webcamRef = useRef(null)
@@ -34,7 +35,7 @@ function AIScannerPage() {
       const data = new FormData()
       data.append('file', imageFile)
 
-      const response = await axios.post('https://ssapplications-hfc4fpbzh9enf7dr.southindia-01.azurewebsites.net/api/id/scan', data, {
+      const response = await axios.post(`${API_BASE_URL}/api/id/scan`, data, {
         headers: {
           'Content-Type': 'multipart/form-data'
         }
@@ -135,7 +136,7 @@ function AIScannerPage() {
       try {
         setLoading(true)
 
-        const response = await axios.post('https://ssapplications-hfc4fpbzh9enf7dr.southindia-01.azurewebsites.net/api/voice/extract', {
+        const response = await axios.post(`${API_BASE_URL}/api/voice/extract`, {
           transcript: finalTranscript
         })
 
